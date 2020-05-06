@@ -19,19 +19,21 @@ public class RemoveDuplicate {
         if (nums == null || nums.length <= 0)
             throw new RuntimeException();
 
-        int index = 1;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] != nums[index - 1]) {
-                nums[index++] = nums[i];
+        int index = 0;
+        for (int n : nums) {
+            if (index < 1 || n != nums[index - 1]) {
+                nums[index] = n;
+                index++;
             }
         }
+        System.out.println(index);
         return nums;
     }
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 1, 2};
-        int[] ret = RemoveDuplicate.removeDuplicate(nums);
+        int[] nums = new int[]{1, 1, 2, 2, 3, 3};
+        RemoveDuplicate.removeDuplicate(nums);
         for (int n : nums) {
             System.out.print(n + "\t");
         }
