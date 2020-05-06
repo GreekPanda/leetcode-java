@@ -32,7 +32,7 @@ public class RemoveDuplicate {
     public static void main(String[] args) {
         int[] nums = new int[]{1, 1, 2};
         int[] ret = RemoveDuplicate.removeDuplicate(nums);
-        for (int n : ret) {
+        for (int n : nums) {
             System.out.print(n + "\t");
         }
     }
