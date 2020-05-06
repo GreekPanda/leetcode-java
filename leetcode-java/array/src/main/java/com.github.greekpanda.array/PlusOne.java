@@ -1,6 +1,12 @@
 package com.github.greekpanda.array;
 
 /**
+ * Plus One
+ * 描述
+ * Given a number represented as an array of digits, plus one to the number.
+ * 分析
+ * 高精度加法。
+ *
  * @author GreePanda
  * @version 1.0
  * @date 2020/5/7 07:09
