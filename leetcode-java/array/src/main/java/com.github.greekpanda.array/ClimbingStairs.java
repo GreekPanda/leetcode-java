@@ -37,6 +37,8 @@ public class ClimbingStairs {
 
     public static int climbStairs1(int n) {
         final double s = Math.sqrt(5);
-        return (int) Math.floor((Math.pow((1 + s) / 2, n + 1) + Math.pow((1 - s) / 2, n + 1)) / s + 0.5);
+       // return (int) Math.floor((Math.pow((1 + s) / 2, n + 1) + Math.pow((1 - s) / 2, n + 1)) / s + 0.5);
+        return (int) Math.floor((Math.pow((1 + s) / 2, n + 1) +
+                Math.pow((1 - s) / 2, n + 1)) / s + 0.5);
     }
 }
