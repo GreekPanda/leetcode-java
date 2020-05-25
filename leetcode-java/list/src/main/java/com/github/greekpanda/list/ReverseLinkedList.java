@@ -2,8 +2,6 @@ package com.github.greekpanda.list;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.List;
-
 /**
  * Reverse Linked List
  * 描述
