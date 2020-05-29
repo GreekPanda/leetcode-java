@@ -9,6 +9,7 @@
         <module name="string" />
         <module name="array" />
         <module name="list" />
+        <module name="java8" />
       </profile>
     </annotationProcessing>
   </component>

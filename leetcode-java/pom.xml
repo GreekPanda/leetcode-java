@@ -11,6 +11,7 @@
         <module>array</module>
         <module>list</module>
         <module>string</module>
+        <module>java8</module>
     </modules>
     <packaging>pom</packaging>
 

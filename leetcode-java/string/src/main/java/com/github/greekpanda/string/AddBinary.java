@@ -17,8 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AddBinary {
     public static void main(String[] args) {
-        String a = "11";
-        String b = "1";
+        String a = "111";
+        String b = "11";
         String ret = addBinary(a, b);
         log.info(ret);
 
