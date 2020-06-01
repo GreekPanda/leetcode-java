@@ -41,10 +41,17 @@ public class FirstTest {
 
 
         //use lambda
-        firstTest.myInterfaceTest( () -> {
+        firstTest.myInterfaceTest(() -> {
             System.out.println("mytest");
             System.out.println(firstTest.getClass());
         });
+
+        System.out.println("---for each lambda");
+        list.forEach(i -> {
+            System.out.print(i + "\t");
+        });
+
+        //use Lambda to print list
 
     }
 
