@@ -46,12 +46,15 @@ public class FirstTest {
             System.out.println(firstTest.getClass());
         });
 
+
+        //use Lambda to print list
+
         System.out.println("---for each lambda");
         list.forEach(i -> {
             System.out.print(i + "\t");
         });
 
-        //use Lambda to print list
+        list.forEach(System.out::print);
 
     }
 
