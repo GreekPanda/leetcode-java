@@ -39,7 +39,7 @@ public class CountAndSay {
             return null;
 
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < s.length(); ++i) {
+        for (int i = 0; i < s.length();) {
             int j = notEqual(s, i);
             sb.append(j - i);
             sb.append(s.charAt(i));
