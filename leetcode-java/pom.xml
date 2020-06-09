@@ -12,6 +12,7 @@
         <module>list</module>
         <module>string</module>
         <module>java8</module>
+        <module>stack</module>
     </modules>
     <packaging>pom</packaging>
 
