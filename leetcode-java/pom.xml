@@ -13,6 +13,8 @@
         <module>string</module>
         <module>java8</module>
         <module>stack</module>
+        <module>queue</module>
+        <module>tree</module>
     </modules>
     <packaging>pom</packaging>
 

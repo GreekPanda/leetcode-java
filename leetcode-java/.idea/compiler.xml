@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="stack" />
+        <module name="java8" />
+        <module name="list" />
         <module name="string" />
         <module name="array" />
-        <module name="list" />
-        <module name="java8" />
+        <module name="queue" />
+        <module name="tree" />
       </profile>
     </annotationProcessing>
   </component>
