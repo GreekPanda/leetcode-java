@@ -29,6 +29,9 @@ public class PreOrderTraversal {
         TreeNode root = ConstructBinaryTree.constructByPreOrderArray(preOrderArray);
         List<Integer> result = preOrderTraversal(root);
         log.info(String.valueOf(result));
+
+        result = morrisPreOrderTraversal(root);
+        log.info(String.valueOf(result));
     }
 
     public static List<Integer> preOrderTraversal(TreeNode root) {
@@ -50,6 +53,36 @@ public class PreOrderTraversal {
             }
             if (treeNode.left != null) {
                 stack.push(treeNode.left);
+            }
+        }
+        return result;
+    }
+
+    public static List morrisPreOrderTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        TreeNode cur = root;
+        TreeNode prev = null;
+
+        while (cur != null) {
+            if (cur.left == null) {
+                result.add(cur.val);
+                prev = cur;
+                cur = cur.right;
+            } else {
+                TreeNode node = cur.left;
+                while(node.right != null && node.right != cur) {
+                    node = node.right;
+                }
+
+                if(node.right == null) {
+                    result.add(cur.val);
+                    node.right = cur;
+                    prev = cur;
+                    cur = cur.left;
+                }  else {
+                    node.right = null;
+                    cur = cur.right;
+                }
             }
         }
         return result;
