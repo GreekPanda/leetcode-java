@@ -15,6 +15,7 @@
         <module>stack</module>
         <module>queue</module>
         <module>tree</module>
+        <module>sort</module>
     </modules>
     <packaging>pom</packaging>
 
