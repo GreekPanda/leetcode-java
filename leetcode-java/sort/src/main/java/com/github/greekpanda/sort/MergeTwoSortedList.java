@@ -13,7 +13,7 @@ public class MergeTwoSortedList {
 
     }
 
-    public ListNode mergeSortedList(ListNode head1, ListNode head2) {
+    public static ListNode mergeSortedList(ListNode head1, ListNode head2) {
         if (head1 == null)
             return head2;
 
