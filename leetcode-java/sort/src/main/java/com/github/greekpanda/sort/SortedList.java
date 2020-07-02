@@ -2,6 +2,11 @@ package com.github.greekpanda.sort;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+
 /**
  * Sort List
  * 描述
@@ -18,14 +23,59 @@ import lombok.extern.slf4j.Slf4j;
 public class SortedList {
 
     public static void main(String[] args) {
+        int i = 0;
+        int j = 10;
+        do {
+            if (i++ > j--)
+                continue;
+        } while (i < 5);
+        System.out.println(i + " +i+ " + j);
 
+        System.out.println("=======================");
+
+        String s1 = "1";
+        s1.intern();
+        String s2 = "1";
+        System.out.println(s1==s2);
+
+        System.out.println("======================");
+        int k = 0;
+        for(foo('A'); foo('B') && k < 2; foo('C')) {
+            foo('D');
+            k++;
+        }
+
+        System.out.println("--------------------------");
+        //corePoolSize：核心线程池大小
+        //MaximumSize:最大线程数
+        //keepAliveTime：存货时间
+        //TimeUnit:时间单位
+        //BlockingQueue:线程队列
+        //ThreadFactory:线程工厂
+        //RejectStrategy:拒绝策略:1) Abort 2) discard
+//        ThreadPoolExecutor threadPoolExecutor = null;
+//
+//        ExecutorService executorService = Executors.newSingleThreadExecutor();
+//        for(int i = 0; i < 5; i++) {
+//            final int j = i;
+//            executorService.execute(() -> {
+//                System.out.println("thread name: " + Thread.currentThread().getName());
+//            });
+//
+//        }
     }
+
+    private static boolean foo(final char c) {
+        System.out.println(c);
+        return true;
+    }
+
 
     public ListNode sortedList(ListNode head) {
         if (head == null || head.next == null)
             return null;
 
-        final ListNode middle = findleMiddle(head);
+        final ListNode middle = findMiddle(head);
         final ListNode head2 = middle.next;
 
         middle.next = null;
@@ -53,7 +103,7 @@ public class SortedList {
         return dummy;
     }
 
-    private static ListNode findleMiddle(ListNode head) {
+    private static ListNode findMiddle(ListNode head) {
         if (head == null)
             return null;
 
