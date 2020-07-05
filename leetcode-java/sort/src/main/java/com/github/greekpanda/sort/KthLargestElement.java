@@ -2,8 +2,11 @@ package com.github.greekpanda.sort;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Random;
+import java.util.concurrent.*;
 
 /**
  * Kth Largest Element in an Array
@@ -40,6 +43,33 @@ import java.util.Queue;
 public class KthLargestElement {
     public static void main(String[] args) {
 
+        ExecutorService executorService = new ThreadPoolExecutor(
+                4,
+                4,
+                0,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(6),
+                Executors.defaultThreadFactory(),
+                new MyHandler());
+
+
+        ForkJoinPoolTest forkJoinPoolTest = new ForkJoinPoolTest();
+        ForkJoinPoolTest.AddTask addTask = new ForkJoinPoolTest.AddTask(0, 5000);
+        addTask.compute();
+
+    }
+
+    static class MyHandler implements RejectedExecutionHandler {
+
+        @Override
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
+            log.info(Thread.currentThread().getName() + " " + " reject ");
+            //save to redis or MQ
+            //Try 3 times
+            if (executor.getQueue().size() < 1000) {
+                //put into queue
+            }
+        }
     }
 
     public static int kthLargestElement(int[] nums, int k) {
@@ -57,5 +87,46 @@ public class KthLargestElement {
             }
         }
         return q.peek();
+    }
+}
+
+
+class ForkJoinPoolTest {
+    static int[] nums = new int[1000000];
+    static final int MAX = 5000;
+    static Random r = new Random();
+
+    static {
+        for (int i = 0; i < MAX; i++) {
+            nums[i] = r.nextInt() * 100;
+        }
+
+        System.out.println(Arrays.stream(nums).sum());
+    }
+
+    static class AddTask extends RecursiveAction {
+        int start, end;
+
+        AddTask(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+
+        @Override
+        protected void compute() {
+            if (end - start < MAX) {
+                long sum = 0L;
+                for (int i = start; i < end; i++) {
+                    sum += nums[i];
+                }
+                System.out.println("start : " + start + " end " + end + " sum = " + sum);
+            } else {
+                int middle = start + (end - start) >> 1;
+                AddTask subTask1 = new AddTask(start, middle);
+                AddTask subTask2 = new AddTask(middle, end);
+                subTask1.fork();
+                subTask2.fork();
+            }
+        }
     }
 }
