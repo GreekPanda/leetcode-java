@@ -22,6 +22,9 @@ import lombok.extern.slf4j.Slf4j;
 public class FirstMissing {
     public static void main(String[] args) {
 
+        Class<?> clazz = FirstMissing.class;
+        clazz.getFields();
+        clazz.getDeclaredFields();
     }
 
     public static int firstMissingPositive(int[] nums) {
