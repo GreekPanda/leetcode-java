@@ -16,6 +16,7 @@
         <module>queue</module>
         <module>tree</module>
         <module>sort</module>
+        <module>search</module>
     </modules>
     <packaging>pom</packaging>
 

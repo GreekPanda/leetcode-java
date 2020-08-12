@@ -12,6 +12,7 @@
         <module name="list" />
         <module name="string" />
         <module name="array" />
+        <module name="search" />
         <module name="queue" />
         <module name="tree" />
       </profile>
