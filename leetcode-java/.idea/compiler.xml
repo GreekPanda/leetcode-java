@@ -8,12 +8,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="stack" />
         <module name="sort" />
-        <module name="queue" />
         <module name="java8" />
         <module name="list" />
         <module name="string" />
         <module name="array" />
         <module name="search" />
+        <module name="queue" />
         <module name="tree" />
       </profile>
     </annotationProcessing>
