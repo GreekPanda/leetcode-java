@@ -6,7 +6,8 @@ import lombok.extern.slf4j.Slf4j;
  * Unique Paths
  * 描述
  * A robot is located at the top-left corner of a m × n grid (marked 'Start' in the diagram below).
- * The robot can only move either down or right at any point in time. The robot is trying to reach the bottomright corner of the grid (marked 'Finish' in the diagram below).
+ * The robot can only move either down or right at any point in time. The robot is trying to
+ * reach the bottomright corner of the grid (marked 'Finish' in the diagram below).
  * How many possible unique paths are there?
  *
  * @author GreekPanda
